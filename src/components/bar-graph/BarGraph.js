@@ -8,7 +8,7 @@ const data = [
   { x: 3, y: 23 },
   { x: 4, y: 41 },
   { x: 5, y: 34 },
-  { x: 5, y: 54 }
+  { x: 6, y: 54 }
 ];
 
 class BarGraph extends Component {
@@ -21,7 +21,17 @@ class BarGraph extends Component {
           domainPadding={10}
         >
           <VictoryBar
-            style={{ data: { fill: "#c43a31" } }}
+            labels={d => `y: ${d.y}`}
+            animate={{
+              duration: 2000,
+              onLoad: { duration: 1000 }
+            }}
+            style={{
+              data: {
+                fill: "#2980B9"
+              },
+              labels: { fontSize: 9 }
+            }}
             alignment="start"
             data={data}
           />
