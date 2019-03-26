@@ -23,10 +23,6 @@ mongoose
 
 require("./routes/api/channels.js")(app);
 
-app.get("/", (req, res) => {
-	res.send("API working!")
-})
-
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
