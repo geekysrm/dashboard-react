@@ -1,68 +1,80 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#  TopTubers
 
-## Available Scripts
+An aggregator of the top channels in Youtube.
 
-In the project directory, you can run:
+### Live here: https://top-yt.herokuapp.com/
 
-### `npm start`
+## Technologies used
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Node.JS](http://nodejs.org/) - Node.JS is used in the backend.
+- [React.JS](https://reactjs.org/) -Frontend library used in the project.
+- [Redux](https://redux.js.org/) - Used in addition to React.JS
+- [MongoDB](http://mongodb.com) - Database of choice
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+_Node.JS and npm must be installed. Download and install them from [here](https://nodejs.org)._
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The `channels.csv` file provided has been imported to mongoDB database as `channels` collection by using the following command on the command line from the root of the project:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+ mongoimport -h <YOUR MONGODB URI> -d <YOUR DATABASE NAME> -c channels-u <YOUR USERNAME> -p <YOUR PASSWORD> --file channels.csv --type csv --headerline
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installing
 
-### `npm run eject`
+Follow these steps to run this project in your local computer.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+$ https://github.com/geekysrm/top-tubers.git
+$ cd top-tubers
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Now, create a `.env` file in the root of the project with the following variables:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+MONGO_URI=<YOUR MONGODB URI>
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Now run :
 
-## Learn More
+```
+$ npm i
+$ npm run client-install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Now, to run both the server and client on port `5000` and `3000` respectively, run:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+$ npm run dev
+```
 
-### Code Splitting
+To run only the server, run:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+$ npm run server
+```
 
-### Analyzing the Bundle Size
+To run only the client, run:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+$ npm run client
+```
 
-### Making a Progressive Web App
+## TODO
+- [ ] Fetch data from [Youtube API](https://developers.google.com/youtube/v3/) instead of CSV file.
+- [ ] Add individual channel pages
+- [ ] Add pagination on homepage
+- [ ] Add feature to search channels by name and other parameters
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Authors
 
-### Advanced Configuration
+- **Soumya Ranjan Mohanty** - [geekysrm](https://github.com/geekysrm)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## License
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License.
