@@ -1,5 +1,4 @@
 const express = require("express");
-// const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mysql = require("mysql");
@@ -11,16 +10,6 @@ app.use(bodyParser.json());
 
 const channels = require("./routes/api/channels");
 
-// require("./models/Channel.js");
-
-// MongoDB configuration
-// const db = process.env.MONGO_URI;
-
-// Use mongoose to connect to mongoDB
-// mongoose
-//   .connect(db)
-//   .then(() => console.log("MongoDB connected successfully!"))
-//   .catch(err => console.log(err));
 
 // MySQL connection
 var db_config = {
