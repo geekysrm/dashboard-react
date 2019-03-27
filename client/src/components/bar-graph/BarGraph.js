@@ -1,18 +1,10 @@
 import React, { Component } from "react";
 import { VictoryBar, VictoryChart, VictoryTheme } from "victory";
 
-// Fetch below data from server (MySQL DB)
-const data = [
-  { x: 1, y: 13 },
-  { x: 2, y: 45 },
-  { x: 3, y: 23 },
-  { x: 4, y: 41 },
-  { x: 5, y: 34 },
-  { x: 6, y: 54 }
-];
-
 class BarGraph extends Component {
   render() {
+    const newData = this.props.data.map((dataElement,index) => ({x:index+1,y:dataElement.data}))
+    
     return (
       <div>
         <VictoryChart
@@ -33,7 +25,7 @@ class BarGraph extends Component {
               labels: { fontSize: 9 }
             }}
             alignment="start"
-            data={data}
+            data={newData}
           />
         </VictoryChart>
       </div>

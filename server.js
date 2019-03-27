@@ -43,40 +43,8 @@ function handleDisconnect() {
         }
     });
 }
-// app.get("/channels/create-table", (req, res) => {
-//       connection.query(`create table if not exists pie(
-//                           data int primary key
-//                       );`, function(err, rows, fields) {
-//         if (err) {
-//             console.log('error: ', err);
-//             throw err;
-//         }
-//         res.send(['Hello World!!!! HOLA MUNDO!!!!', rows]);
-//     });
-//   });
 
-// app.get("/channels/delete-table", (req, res) => {
-//       connection.query(`DROP TABLE pie;`, function(err, rows, fields) {
-//         if (err) {
-//             console.log('error: ', err);
-//             throw err;
-//         }
-//         res.send(['Hello World!!!! HOLA MUNDO!!!!', rows]);
-//     });
-//   });
-
-// app.get("/channels/insert-data", (req, res) => {
-//       connection.query(`INSERT INTO pie(data)
-// VALUES (25),(35),(40)`, function(err, rows, fields) {
-//         if (err) {
-//             console.log('error: ', err);
-//             throw err;
-//         }
-//         res.send(rows);
-//     });
-//   });
-
-app.get("/channels/view-data-pie", (req, res) => {
+app.get("/api/channels/view-data-pie", (req, res) => {
       connection.query(`select * from pie;`, function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
@@ -86,7 +54,7 @@ app.get("/channels/view-data-pie", (req, res) => {
     });
 });
 
-app.get("/channels/view-data-bar", (req, res) => {
+app.get("/api/channels/view-data-bar", (req, res) => {
       connection.query(`select * from bar;`, function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
