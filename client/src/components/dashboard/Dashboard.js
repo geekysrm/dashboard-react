@@ -22,11 +22,13 @@ componentDidMount() {
 }
 
   render() {
+  	if(this.state.data.length)
     return (
       <div>
         <BarGraph data={this.state.data} />
       </div>
     );
+  else return <div>Loading...</div>
   }
 }
 
