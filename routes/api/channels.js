@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const Channel = require("../../models/Channel");
+// const Channel = require("../../models/Channel");
 
 module.exports = app => {
   app.get("/channels/test", (req, res) => {
