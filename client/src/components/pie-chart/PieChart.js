@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { VictoryPie, VictoryTheme } from "victory";
 
-// // Fetch below data from server (MySQL DB)
-// const data = [{ y: 35 }, { y: 40 }, { y: 55 }];
-
 class PieChart extends Component {
   render() {
-     const newData = this.props.data.map((dataElement) => ({y:dataElement.data}))
+    
+     const newData = this.props.data.map((dataElement,index) => ({x:dataElement.data+"%",y:dataElement.data}));
     
     return (
       <div>
