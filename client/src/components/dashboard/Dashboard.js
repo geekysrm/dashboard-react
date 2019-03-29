@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import BarGraph from "../bar-graph/BarGraph";
-import PieChart from "../pie-chart/PieChart";
+import BarGraph from "./BarGraph";
+import PieChart from "./PieChart";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -41,15 +41,15 @@ class Dashboard extends Component {
           <div className="row">
             <div className="col-md-2">
               <nav className="nav flex-column">
-                <Link className="nav-link active" to="/login">
-                  Active
+                <Link className="nav-link active" to="/bar-graph">
+                  Show Bar Graph
                 </Link>
-                <a className="nav-link" href="#">
-                  Link
-                </a>
-                <a className="nav-link" href="#">
-                  Link
-                </a>
+                <Link className="nav-link " to="/pie-chart">
+                  Show Pie Chart
+                </Link>
+                <Link className="nav-link active" to="/login">
+                  Logout
+                </Link>
               </nav>
             </div>
             <div className="col-md-8">
