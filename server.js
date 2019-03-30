@@ -48,7 +48,7 @@ function handleDisconnect() {
 }
 
 // Login for user
-app.post("/api/login", (req, res) => {
+app.post("/api/channels/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   // make date
@@ -83,7 +83,10 @@ app.post("/api/login", (req, res) => {
     });
   } else {
     msg = "Invalid credentials";
-    return res.status(400).json(msg);
+    return res.status(400).json({
+        success: false,
+        msg
+      });
   }
 });
 

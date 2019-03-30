@@ -4,27 +4,21 @@ import { Link } from "react-router-dom";
 
 import BarGraph from "./BarGraph";
 import PieChart from "./PieChart";
+import SideBar from "./SideBar";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
   state = {
     data: []
+    // type:""
   };
 
-  // componentDidMount() {
-  // 	axios.get('/api/channels/view-data-bar')
-  //   .then( (response) => {
-  //     console.log(response.data);
-  //     this.setState({data:response.data})
-  //   })
-  //   .catch( (error) => {
-  //     console.log(error);
-  //   })
-  // }
-
   componentDidMount() {
+    if(localStorage.token){
+    console.log(this.props.match.params.type);
+    if(!this.props.match.params.type) this.props.history.push("/dashboard/bar")
     axios
-      .get("/api/channels/view-data-pie")
+      .get(`/api/channels/view-data-${this.props.match.params.type}`)
       .then(response => {
         console.log(response.data);
         this.setState({ data: response.data });
@@ -33,33 +27,45 @@ class Dashboard extends Component {
         console.log(error);
       });
   }
+  else this.props.history.push("/")
+}
+  componentDidUpdate(prevProps, prevState) {
+
+  if (prevProps.match.params.type !== this.props.match.params.type) {
+    this.setState({data: []})
+     axios
+      .get(`/api/channels/view-data-${this.props.match.params.type}`)
+      .then(response => {
+        console.log(response.data);
+        this.setState({ data: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+   
+  }
 
   render() {
-    if (this.state.data.length)
-      return (
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-2">
-              <nav className="nav flex-column">
-                <Link className="nav-link active" to="/bar-graph">
-                  Show Bar Graph
-                </Link>
-                <Link className="nav-link " to="/pie-chart">
-                  Show Pie Chart
-                </Link>
-                <Link className="nav-link active" to="/login">
-                  Logout
-                </Link>
-              </nav>
-            </div>
-            <div className="col-md-8">
-              {/*<BarGraph data={this.state.data} />*/}
+    const type = this.props.match.params.type;
+    return (
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-2">
+            <SideBar  />
+          </div>
+          <div className="col-md-8">
+            {this.state.data.length && type==="bar" && (
+              <BarGraph data={this.state.data} />
+            )
+          }
+            {this.state.data.length && type==="pie" && (
               <PieChart data={this.state.data} />
-            </div>
+            ) }
           </div>
         </div>
-      );
-    else return <div>Loading bar graph...</div>;
+      </div>
+    );
   }
 }
 
