@@ -3,8 +3,13 @@
 	padding: 100px 10px 0px 10px;
 }
 
+.stats-heading {
+	text-align: center;
+  margin-top: 25px;
+}
+
 .graph-wrapper{
-	height: 70%;
+	height: 61%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

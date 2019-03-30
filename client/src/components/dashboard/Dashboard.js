@@ -52,6 +52,7 @@ class Dashboard extends Component {
             <SideBar  />
           </div>
           <div className="col-md-8">
+          <h1 className="display-4 stats-heading">Your Stats</h1>
             {this.state.data.length && type==="bar" && (
               <BarGraph data={this.state.data} />
             )

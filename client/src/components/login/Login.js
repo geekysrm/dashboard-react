@@ -47,7 +47,7 @@ class Login extends Component {
       
       <div className="jumbotron login-wrapper">
   <h1 className="display-4">Dashboard with Charts</h1>
-  <p className="lead">Please login to view your statistics</p>
+  <p className="lead">Please login to view your stats</p>
   <hr className="my-4" />
   {this.state.error && (
           <div className="alert alert-danger" role="alert">
