@@ -22,21 +22,20 @@ var connection;
 // Handle Disconnection of server
 function handleDisconnect() {
   console.log("1. connecting to db:");
-  connection = mysql.createConnection(db_config); 
+  connection = mysql.createConnection(db_config);
 
   connection.connect(function(err) {
     if (err) {
       console.log("2. error when connecting to db:", err);
-      setTimeout(handleDisconnect, 1000); 
+      setTimeout(handleDisconnect, 1000);
     }
-  }); 
+  });
   connection.on("error", function(err) {
     console.log("3. db error", err);
     if (err.code === "PROTOCOL_CONNECTION_LOST") {
-      
-      handleDisconnect(); 
+      handleDisconnect();
     } else {
-      throw err; 
+      throw err;
     }
   });
 }
@@ -80,9 +79,9 @@ app.post("/api/channels/login", (req, res) => {
   } else {
     msg = "Invalid credentials";
     return res.status(400).json({
-        success: false,
-        msg
-      });
+      success: false,
+      msg
+    });
   }
 });
 

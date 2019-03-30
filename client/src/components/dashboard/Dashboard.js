@@ -13,34 +13,32 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
-    if(localStorage.token){
-    console.log(this.props.match.params.type);
-    if(!this.props.match.params.type) this.props.history.push("/dashboard/bar")
-    axios
-      .get(`/api/channels/view-data-${this.props.match.params.type}`)
-      .then(response => {
-        this.setState({ data: response.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    if (localStorage.token) {
+      console.log(this.props.match.params.type);
+      if (!this.props.match.params.type)
+        this.props.history.push("/dashboard/bar");
+      axios
+        .get(`/api/channels/view-data-${this.props.match.params.type}`)
+        .then(response => {
+          this.setState({ data: response.data });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else this.props.history.push("/");
   }
-  else this.props.history.push("/")
-}
   componentDidUpdate(prevProps, prevState) {
-
-  if (prevProps.match.params.type !== this.props.match.params.type) {
-    this.setState({data: []})
-     axios
-      .get(`/api/channels/view-data-${this.props.match.params.type}`)
-      .then(response => {
-        this.setState({ data: response.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-   
+    if (prevProps.match.params.type !== this.props.match.params.type) {
+      this.setState({ data: [] });
+      axios
+        .get(`/api/channels/view-data-${this.props.match.params.type}`)
+        .then(response => {
+          this.setState({ data: response.data });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
 
   render() {
@@ -49,17 +47,16 @@ class Dashboard extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-3 bg-secondary">
-            <SideBar  />
+            <SideBar />
           </div>
           <div className="col-md-8">
-          <h1 className="display-4 stats-heading">Your Stats</h1>
-            {this.state.data.length && type==="bar" && (
+            <h1 className="display-4 stats-heading">Your Stats</h1>
+            {this.state.data.length && type === "bar" && (
               <BarGraph data={this.state.data} />
-            )
-          }
-            {this.state.data.length && type==="pie" && (
+            )}
+            {this.state.data.length && type === "pie" && (
               <PieChart data={this.state.data} />
-            ) }
+            )}
           </div>
         </div>
       </div>

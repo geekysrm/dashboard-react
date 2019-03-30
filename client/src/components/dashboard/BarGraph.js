@@ -4,7 +4,7 @@ import { VictoryBar, VictoryChart, VictoryTheme } from "victory";
 class BarGraph extends Component {
   render() {
     const newData = this.props.data.map((dataElement,index) => ({x:index+1,y:dataElement.data}))
-    
+
     return (
       <div className="graph-wrapper">
         <VictoryChart
