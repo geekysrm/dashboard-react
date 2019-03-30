@@ -9,8 +9,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// const channels = require("./routes/api/channels");
-
 // MySQL connection
 var db_config = {
   host: process.env.MYSQL_HOST,
@@ -21,31 +19,29 @@ var db_config = {
 
 var connection;
 
+// Handle Disconnection of server
 function handleDisconnect() {
   console.log("1. connecting to db:");
-  connection = mysql.createConnection(db_config); // Recreate the connection, since
-  // the old one cannot be reused.
+  connection = mysql.createConnection(db_config); 
 
   connection.connect(function(err) {
-    // The server is either down
     if (err) {
-      // or restarting (takes a while sometimes).
       console.log("2. error when connecting to db:", err);
-      setTimeout(handleDisconnect, 1000); // We introduce a delay before attempting to reconnect,
-    } // to avoid a hot loop, and to allow our node script to
-  }); // process asynchronous requests in the meantime.
-  // If you're also serving http, display a 503 error.
+      setTimeout(handleDisconnect, 1000); 
+    }
+  }); 
   connection.on("error", function(err) {
     console.log("3. db error", err);
     if (err.code === "PROTOCOL_CONNECTION_LOST") {
-      // Connection to the MySQL server is usually
-      handleDisconnect(); // lost due to either server restart, or a
+      
+      handleDisconnect(); 
     } else {
-      // connnection idle timeout (the wait_timeout
-      throw err; // server variable configures this)
+      throw err; 
     }
   });
 }
+
+handleDisconnect();
 
 // Login for user
 app.post("/api/channels/login", (req, res) => {
@@ -109,10 +105,6 @@ app.get("/api/channels/view-data-bar", (req, res) => {
     res.send(rows);
   });
 });
-
-handleDisconnect();
-
-// require("./routes/api/channels.js")(app);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
