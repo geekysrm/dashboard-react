@@ -10,6 +10,12 @@ A dashboard showing data in bar graph and pie chart.
 - [Victory](https://formidable.com/open-source/victory/) - Charting library used.
 - [Node.JS](http://nodejs.org/) - Node.JS is used in the backend to serve the MySQL DB.
 
+## Features
+- This is a simple ReactJS application which shows a simple dashboard after successful login.
+- This dashboard has 2 graphs (bar graph and pie chart).
+- The charts are connected with a MySQL server which has [13, 45, 23, 41, 34, 54] for the **bar graph** and [25, 35, 40] for the **pie chart** as the data.
+- For login, login-id would be *admin* and password would be *current date in this format 24march2019*.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -26,6 +32,10 @@ Follow these steps to run this project in your local computer.
 $ https://github.com/geekysrm/dashboard-react.git
 $ cd dashboard-react
 ```
+
+Create a MySQL server with 2 tables `bar` and `pie` each having a column `data`.
+`bar` has `data` values: [13, 45, 23, 41, 34, 54]
+`pie` has `data` values: [25, 35, 40] 
 
 Now, create a `.env` file in the root of the project with the following variables:
 
