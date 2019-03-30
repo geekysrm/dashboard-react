@@ -6,7 +6,7 @@ class BarGraph extends Component {
     const newData = this.props.data.map((dataElement,index) => ({x:index+1,y:dataElement.data}))
     
     return (
-      <div>
+      <div className="graph-wrapper">
         <VictoryChart
           style={{ parent: { maxWidth: "70%" } }}
           theme={VictoryTheme.material}

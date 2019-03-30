@@ -7,7 +7,7 @@ class PieChart extends Component {
      const newData = this.props.data.map((dataElement,index) => ({x:dataElement.data+"%",y:dataElement.data}));
     
     return (
-      <div>
+      <div className="graph-wrapper">
         <VictoryPie
           theme={VictoryTheme.material}
           colorScale={["#ffcd32", "#47acb1", "#f26522"]}

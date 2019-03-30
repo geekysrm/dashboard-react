@@ -1,7 +1,7 @@
 {
-  "name": "top-tubers",
+  "name": "dashboard-react",
   "version": "1.0.0",
-  "description": "An aggregator of the top channels in Youtube.",
+  "description": "A dashboard showing data in bar graph and pie chart.",
   "main": "server.js",
   "engines": {
     "node": "10.3.0"

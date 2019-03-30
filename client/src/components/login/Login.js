@@ -17,13 +17,11 @@ class Login extends Component {
 
   handleFormSubmit =(e) => {
     e.preventDefault();
-    console.log(this.state);
     axios.post('/api/channels/login', {
     username: this.state.username,
     password: this.state.password
   })
   .then( (response) =>  {
-    console.log(response.data);
     if(response.data.success){
       localStorage.setItem("token",response.data.token);
       this.props.history.push('/dashboard/bar');

@@ -10,7 +10,6 @@ import "./Dashboard.css";
 class Dashboard extends Component {
   state = {
     data: []
-    // type:""
   };
 
   componentDidMount() {
@@ -20,7 +19,6 @@ class Dashboard extends Component {
     axios
       .get(`/api/channels/view-data-${this.props.match.params.type}`)
       .then(response => {
-        console.log(response.data);
         this.setState({ data: response.data });
       })
       .catch(error => {
@@ -36,7 +34,6 @@ class Dashboard extends Component {
      axios
       .get(`/api/channels/view-data-${this.props.match.params.type}`)
       .then(response => {
-        console.log(response.data);
         this.setState({ data: response.data });
       })
       .catch(error => {
