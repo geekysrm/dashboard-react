@@ -9,7 +9,7 @@ class SideBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="sidebar-wrapper">
       <nav className="nav flex-column">
         <Link className="nav-link active" to="/dashboard/bar">
           Show Bar Graph

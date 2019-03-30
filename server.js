@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const channels = require("./routes/api/channels");
+// const channels = require("./routes/api/channels");
 
 // MySQL connection
 var db_config = {
@@ -112,7 +112,7 @@ app.get("/api/channels/view-data-bar", (req, res) => {
 
 handleDisconnect();
 
-require("./routes/api/channels.js")(app);
+// require("./routes/api/channels.js")(app);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {

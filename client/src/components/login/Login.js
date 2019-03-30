@@ -26,12 +26,15 @@ class Login extends Component {
     console.log(response.data);
     if(response.data.success){
       localStorage.setItem("token",response.data.token);
-      this.props.history.push('/dashboard/');
+      this.props.history.push('/dashboard/bar');
+    }
+    else {
+      this.setState({error:"Invalid credentials"});
     }
   })
   .catch( (error) =>  {
     console.log(error);
-    this.setState({error:error.msg});
+    this.setState({error:"Invalid credentials"});
   });
   }
   
@@ -41,7 +44,13 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      
+      <div className="container">
+      {this.state.error && (
+          <div className="alert alert-danger" role="alert">
+            {this.state.error}
+          </div>
+      )}
         <form onSubmit={this.handleFormSubmit}>
           <div className="form-group">
             <label >Username</label>

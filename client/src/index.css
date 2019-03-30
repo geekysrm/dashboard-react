@@ -6,4 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+#root {
+	min-height: 100vh;
+}
+.App {
+	min-height: 100vh;
 }
