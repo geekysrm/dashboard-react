@@ -8,7 +8,7 @@ class BarGraph extends Component {
     return (
       <div>
         <VictoryChart
-          style={{ parent: { maxWidth: "50%" } }}
+          style={{ parent: { maxWidth: "70%" } }}
           theme={VictoryTheme.material}
           domainPadding={10}
         >

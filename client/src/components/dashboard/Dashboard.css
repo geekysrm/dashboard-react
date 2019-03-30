@@ -1,3 +1,19 @@
 .sidebar-wrapper {
-	min-height:100% ;
+	min-height:100vh;
+	padding: 100px 10px 0px 10px;
+}
+
+.col-md-3{
+
+}
+
+.nav-link {
+    font-size: 25px;
+    display: block;
+    padding: 1.5rem 2rem;
+    text-align: left;
+    color: white;
+}
+.nav-link:hover {
+	color: black;
 }

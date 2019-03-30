@@ -51,7 +51,7 @@ class Dashboard extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-3 bg-secondary">
             <SideBar  />
           </div>
           <div className="col-md-8">

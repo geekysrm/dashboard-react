@@ -11,7 +11,7 @@ class PieChart extends Component {
         <VictoryPie
           theme={VictoryTheme.material}
           colorScale={["#ffcd32", "#47acb1", "#f26522"]}
-          style={{ parent: { maxWidth: "50%" } }}
+          style={{ parent: { maxWidth: "70%" } }}
           data={newData}
         />
       </div>
